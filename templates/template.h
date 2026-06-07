@@ -6,7 +6,7 @@
 const size_t SOLAR_TERMS_DATA_LENGTH = $data_length;
 
 // Array of UNIX Epochs (UTC)
-const uint32_t SOLAR_TERMS_TIMESTAMPS[] = {
+const int64_t SOLAR_TERMS_TIMESTAMPS[] = {
     $epochs
 };
 
