@@ -1,21 +1,23 @@
+#ifndef AUTO_GENERATED_SOLAR_TERMS_H
+#define AUTO_GENERATED_SOLAR_TERMS_H
+
 // Auto-generated Solar Terms: $start_year to $end_year
 #pragma once
-#include <stdint.h>
-#include <stddef.h>
+#include <array>
+#include <cstddef>
+#include <cstdint>
 
-const size_t SOLAR_TERMS_DATA_LENGTH = $data_length;
+constexpr size_t SOLAR_TERMS_DATA_LENGTH = $data_length;
 
 // Array of UNIX Epochs (UTC)
-const int64_t SOLAR_TERMS_TIMESTAMPS[] = {
-    $epochs
-};
+constexpr std::array<int64_t, $data_length> SOLAR_TERMS_TIMESTAMPS = {$epochs};
 
 // Array of corresponding Solar Term IDs (0-23)
-const uint8_t SOLAR_TERMS_TERMS[] = {
-    $terms
+constexpr std::array<uint8_t, $data_length> SOLAR_TERMS_TERMS = {$terms};
+
+// Enum of Solar Terms
+enum class SolarTermName : uint8_t {
+$term_names
 };
 
-// Array of Solar Term English Names (Index 0-23)
-const char* const SOLAR_TERMS_TERM_NAMES[] = {
-    $term_names
-};
+#endif // AUTO_GENERATED_SOLAR_TERMS_H

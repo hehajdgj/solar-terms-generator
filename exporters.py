@@ -39,9 +39,9 @@ def export_cpp_header(data: list[SolarTerm], start_year, end_year, filename):
     # Extract the term index directly from the dataclass object
     terms_str = format_cpp_array([str(item.term_index) for item in data], items_per_line=12)
     
-    # Prepare the English names array (0 to 23)
-    names_list = [f'"{SOLAR_TERMS_EN[i]}"' for i in range(24)]
-    term_names_str = format_cpp_array(names_list, items_per_line=4)
+    # Prepare the Enum members (0 to 23)
+    names_list = [f'    {SOLAR_TERMS_EN[i].upper()} = {i}' for i in range(24)]
+    term_names_str = ',\n'.join(names_list)
     
     # Read the raw template file
     with open('templates/template.h', 'r', encoding='utf-8') as f:
